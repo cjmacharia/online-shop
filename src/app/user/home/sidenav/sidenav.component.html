@@ -1,0 +1,3 @@
+<nav mat-tab-nav-bar>
+    <a mat-tab-link *ngFor = "let cats of movies$ | async"> {{cats.name}} </a>
+</nav>

@@ -1,0 +1,21 @@
+<div>
+<mat-card fxLayout="column" fxFlex fxLayoutAlign="center center" class="login-page">
+  <mat-card-header> 
+    <mat-card-title>Login Page </mat-card-title>
+  </mat-card-header>
+  <form [formGroup]= "loginForm" (ngSubmit)="onSubmit()">
+  <mat-card-content fxLayout="column">
+    <mat-form-field>
+      <input matInput name="email"formControlName="email" placeholder="email">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput name="password" formControlName="password" placeholder="password">
+      </mat-form-field>
+  </mat-card-content>
+  <mat-card-actions>
+    <button *ngIf="!(isLoading$ | async)" mat-raised-button color="primary" >Login</button>
+    <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+  </mat-card-actions>
+  </form>
+</mat-card>
+</div>

@@ -1,0 +1,36 @@
+<div>
+    <mat-card fxLayout="column" fxFlex fxLayoutAlign="center center" class="login-page">
+      <mat-card-header> 
+        <mat-card-title>sign up Page </mat-card-title>
+      </mat-card-header>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+      <mat-card-content fxLayout="column">
+          <mat-form-field>
+              <input matInput name="name" formControlName="name" placeholder="name" required>
+              <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+                  <mat-error  *ngIf="name.errors.required">Name is required.</mat-error > </mat-error >
+            </mat-form-field>  
+        <mat-form-field>
+          <input matInput name="email" formControlName="email" placeholder="email" required>
+          <mat-error  *ngIf="email.invalid && (email.dirty || email.touched)">
+              <mat-error *ngIf="email.errors.required">email is required.</mat-error> 
+              <mat-error *ngIf="email.hasError && !email.errors.required">email is invalid.</mat-error>
+            </mat-error >
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput name="password" formControlName="password" placeholder="password" required>
+            <mat-error  *ngIf="password.invalid && (password.dirty || password.touched)"class="alert alert-danger">
+                <mat-error  *ngIf="password.errors.required">password is required.</mat-error > </mat-error >
+          </mat-form-field>
+          <mat-form-field>
+              <input matInput name="cPassword" formControlName="cPassword" [errorStateMatcher]="matcher" placeholder="confirm password">
+              <mat-error *ngIf="registerForm.hasError('notSame')">password mismatch </mat-error>
+          </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button *ngIf="!(isLoading$ | async)"mat-raised-button color="primary" >Register</button>
+        <mat-spinner *ngIf="isLoading$ | async"></mat-spinner>
+      </mat-card-actions>
+      </form>
+    </mat-card>
+    </div>
