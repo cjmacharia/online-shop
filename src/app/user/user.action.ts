@@ -10,6 +10,7 @@ export const LOAD_PRODUCTS_FAIL = "[PRODUCTS] products not loaded"
 
 export class LoadCartegories implements Action {
   readonly type = LOAD_CATEGORIES
+
 }
 
 export class LoadCategoriesSuccess implements Action {
@@ -25,6 +26,7 @@ export class LoadCategoriesFail implements Action {
 }
 export class LoadProducts implements Action {
   readonly type = LOAD_PRODUCTS
+
 }
 
 export class LoadProductsSuccess implements Action {
@@ -38,6 +40,4 @@ export class LoadProductsFail implements Action {
 
 }
 
-export type categoryActions = LoadCartegories | LoadCategoriesSuccess| LoadCategoriesFail;
-
-export type productsAction = LoadProducts | LoadProductsSuccess | LoadProductsFail
+export type categoryActions = LoadCartegories | LoadCategoriesSuccess| LoadCategoriesFail | LoadProducts | LoadProductsSuccess | LoadProductsFail;

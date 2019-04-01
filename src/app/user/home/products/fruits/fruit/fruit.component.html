@@ -1,0 +1,16 @@
+<mat-card >
+  <mat-card-header>
+      <div class="fruits" [style.backgroundImage]="'url(' + fruit.image + ')'"></div>
+  </mat-card-header>
+  <mat-card-content>
+    <span>{{fruit.name}}</span>
+    <hr>
+    <span>{{fruit.price | currency}}</span>
+  </mat-card-content>
+  <mat-card-actions >
+        <shopping-quantity *ngIf="productExists; else addItem" ></shopping-quantity>
+      <ng-template #addItem>
+        <button mat-button (click)="addToCart(fruit)">Add to cart</button>
+      </ng-template>
+  </mat-card-actions>
+</mat-card>

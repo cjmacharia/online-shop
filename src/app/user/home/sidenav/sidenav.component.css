@@ -1,3 +1,13 @@
-mat-tab {
+/* mat-tab {
   margin-left: 100px
+} */
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+  height: 100%;
+  
 }
+mat-sidenav {
+  width: 250px;
+  /* z-index: 10000; */
+}
+
+

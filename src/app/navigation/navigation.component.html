@@ -1,10 +1,11 @@
 <mat-toolbar  color = "primary"  fxLayout="row">
   <div fxHide.gt-xs>
-    <button mat-icon-button >
+    <button mat-icon-button (click)="onToggle()">
       <mat-icon>menu</mat-icon>
     </button>
   </div>
-    <div>shop management</div>
+    <div *ngIf = "!(isAuth$ | async)">shop management</div>
+    <mat-icon *ngIf = "isAuth$ | async">shopping_cart</mat-icon>
     <div fxFlex fxLayoutAlign="end center" fxHide.xs >
       <ul   fxLayoutGap="30px" fxLayout class="navigation" >
         <li *ngIf = "!(isAuth$ | async)"> 
@@ -12,7 +13,6 @@
         </li>
         <li *ngIf = "!(isAuth$ | async)"> <a routerLink="/register">signup</a></li>
         <li *ngIf = "isAuth$ | async" (click) ="onClick()"> <a>logout</a></li>
-
       </ul>
       </div>
 </mat-toolbar>

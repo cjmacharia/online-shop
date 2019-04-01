@@ -20,14 +20,18 @@ import { AngularFirestore } from 'angularfire2/firestore';
 import { EffectsModule } from '@ngrx/effects';
 import { appEffects } from './app.effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { ProductsModule } from './user/home/products/products.module';
+import { SidenavComponent } from './sidenav/sidenav.component';
 @NgModule({
   declarations: [
     AppComponent,
     NavigationComponent,
     HomeComponent,
+    SidenavComponent,
   ],
   imports: [
     HomeModule,
+    ProductsModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
